@@ -1,0 +1,112 @@
+
+Running backup for pruebas.local
+--------------------------------------------------
+database backup taken - ./pruebas.local/private/backups/20150214_72212303_database.sql.gz - on 2015-02-14 22:30:05.613533
+
+Running backup for produccion.local
+--------------------------------------------------
+database backup taken - ./produccion.local/private/backups/20150214_68593056_database.sql.gz - on 2015-02-14 22:30:09.013799
+
+Running backup for liber.local
+--------------------------------------------------
+database backup taken - ./liber.local/private/backups/20150214_37285783_database.sql.gz - on 2015-02-14 22:30:12.500876
+
+Running backup for site1.local
+--------------------------------------------------
+database backup taken - ./site1.local/private/backups/20150214_18436869_database.sql.gz - on 2015-02-14 12:00:14.881541
+
+Running backup for pruebas.local
+--------------------------------------------------
+database backup taken - ./pruebas.local/private/backups/20150216_43809235_database.sql.gz - on 2015-02-16 22:30:05.230487
+
+Running backup for produccion.local
+--------------------------------------------------
+database backup taken - ./produccion.local/private/backups/20150216_44336757_database.sql.gz - on 2015-02-16 22:30:08.175908
+
+Running backup for liber.local
+--------------------------------------------------
+database backup taken - ./liber.local/private/backups/20150216_28503229_database.sql.gz - on 2015-02-16 22:30:11.046453
+
+Running backup for site1.local
+--------------------------------------------------
+database backup taken - ./site1.local/private/backups/20150216_42324485_database.sql.gz - on 2015-02-16 12:00:13.976416
+
+Running backup for pruebas.local
+--------------------------------------------------
+database backup taken - ./pruebas.local/private/backups/20150217_33241436_database.sql.gz - on 2015-02-17 22:30:06.995829
+
+Running backup for produccion.local
+--------------------------------------------------
+database backup taken - ./produccion.local/private/backups/20150217_4981570_database.sql.gz - on 2015-02-17 22:30:09.818159
+
+Running backup for liber.local
+--------------------------------------------------
+database backup taken - ./liber.local/private/backups/20150217_67775338_database.sql.gz - on 2015-02-17 22:30:12.489140
+
+Running backup for site1.local
+--------------------------------------------------
+database backup taken - ./site1.local/private/backups/20150217_79140416_database.sql.gz - on 2015-02-17 12:00:14.806266
+
+Running backup for pruebas.local
+--------------------------------------------------
+database backup taken - ./pruebas.local/private/backups/20150218_23227108_database.sql.gz - on 2015-02-18 22:30:10.067746
+
+Running backup for produccion.local
+--------------------------------------------------
+database backup taken - ./produccion.local/private/backups/20150218_35234190_database.sql.gz - on 2015-02-18 22:30:18.119332
+
+Running backup for liber.local
+--------------------------------------------------
+database backup taken - ./liber.local/private/backups/20150218_6730730_database.sql.gz - on 2015-02-18 12:00:26.869031
+
+Running backup for site1.local
+--------------------------------------------------
+database backup taken - ./site1.local/private/backups/20150218_74827252_database.sql.gz - on 2015-02-18 12:00:34.884993
+
+Running backup for pruebas.local
+--------------------------------------------------
+database backup taken - ./pruebas.local/private/backups/20150219_77649373_database.sql.gz - on 2015-02-19 22:30:11.113256
+
+Running backup for produccion.local
+--------------------------------------------------
+database backup taken - ./produccion.local/private/backups/20150219_18638274_database.sql.gz - on 2015-02-19 22:30:19.856668
+
+Running backup for liber.local
+--------------------------------------------------
+database backup taken - ./liber.local/private/backups/20150219_41430612_database.sql.gz - on 2015-02-19 12:00:25.044468
+
+Running backup for site1.local
+--------------------------------------------------
+database backup taken - ./site1.local/private/backups/20150219_34439121_database.sql.gz - on 2015-02-19 12:00:28.586658
+
+Running backup for pruebas.local
+--------------------------------------------------
+database backup taken - ./pruebas.local/private/backups/20150219_38629073_database.sql.gz - on 2015-02-19 18:00:03.840909
+
+Running backup for produccion.local
+--------------------------------------------------
+database backup taken - ./produccion.local/private/backups/20150219_22653014_database.sql.gz - on 2015-02-20 04:30:05.465533
+
+Running backup for liber.local
+--------------------------------------------------
+database backup taken - ./liber.local/private/backups/20150219_80067018_database.sql.gz - on 2015-02-19 18:00:07.293683
+
+Running backup for site1.local
+--------------------------------------------------
+database backup taken - ./site1.local/private/backups/20150219_69174308_database.sql.gz - on 2015-02-19 18:00:08.639955
+
+Running backup for pruebas.local
+--------------------------------------------------
+database backup taken - ./pruebas.local/private/backups/20150220_18854661_database.sql.gz - on 2015-02-20 12:00:07.652846
+
+Running backup for produccion.local
+--------------------------------------------------
+database backup taken - ./produccion.local/private/backups/20150220_29465909_database.sql.gz - on 2015-02-20 22:30:15.910589
+
+Running backup for liber.local
+--------------------------------------------------
+database backup taken - ./liber.local/private/backups/20150220_96908698_database.sql.gz - on 2015-02-20 12:00:22.580707
+
+Running backup for site1.local
+--------------------------------------------------
+database backup taken - ./site1.local/private/backups/20150220_99540013_database.sql.gz - on 2015-02-20 12:00:25.294089

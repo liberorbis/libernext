@@ -1,0 +1,613 @@
+[2015-02-13 13:16:56,658: WARNING/MainProcess] celery@zeus ready.
+[2015-02-13 14:49:59,712: WARNING/MainProcess] celery@zeus ready.
+[2015-02-13 16:52:54,868: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/worker/consumer.py", line 278, in start
+    blueprint.start(self)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/bootsteps.py", line 123, in start
+    step.start(parent)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/worker/consumer.py", line 821, in start
+    c.loop(*c.loop_args())
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/worker/loops.py", line 70, in asynloop
+    next(loop)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/kombu/async/hub.py", line 267, in create_loop
+    tick_callback()
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/kombu/transport/redis.py", line 941, in on_poll_start
+    cycle_poll_start()
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/kombu/transport/redis.py", line 299, in on_poll_start
+    self._register_BRPOP(channel)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/kombu/transport/redis.py", line 282, in _register_BRPOP
+    self._register(*ident)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/kombu/transport/redis.py", line 267, in _register
+    client.connection.connect()
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/redis/connection.py", line 436, in connect
+    raise ConnectionError(self._error_message(e))
+ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2015-02-13 16:52:56,384: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 111 connecting to localhost:6379. Connection refused..
+Trying again in 2.00 seconds...
+
+[2015-02-14 08:11:11,248: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 111 connecting to localhost:6379. Connection refused..
+Trying again in 2.00 seconds...
+
+[2015-02-14 08:11:13,190: WARNING/MainProcess] celery@zeus ready.
+[2015-02-16 08:14:54,928: WARNING/MainProcess] celery@zeus ready.
+[2015-02-16 08:14:56,190: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[ebadb26e-e939-4a8b-a148-9017f256c9da] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-16 08:14:56,191: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[e6197639-94c3-4f90-a657-12d1a0768dd0] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-16 08:14:56,192: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[4a989c22-8cc6-421b-9240-751e7b549215] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-16 08:14:56,192: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[f638fa95-d096-421c-aeda-9c25fc322a40] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-16 09:49:53,237: WARNING/MainProcess] celery@zeus ready.
+[2015-02-16 09:49:55,083: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[d807b0cb-6f88-4ba6-8e79-defa4dd4210e] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-16 09:49:55,083: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[c439dbc2-64d5-4450-8e4a-bc759c2f5cb4] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-16 09:49:55,084: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[4cbdddc9-3b34-41a0-a342-dd48207e9260] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-16 09:49:55,084: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[859554bd-be9f-4e25-a7cc-f4f0a6d54558] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-16 10:01:37,177: WARNING/MainProcess] celery@zeus ready.
+[2015-02-16 10:01:39,498: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[a7891016-c599-4625-9b16-bda3a9c6e10c] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-16 10:01:39,499: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[46fffc7c-e132-4e35-a6dd-c7dbf97bf9ba] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-16 10:01:39,500: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[e86c6e6a-e371-4053-8fe5-840e1dec5da9] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-16 10:01:39,500: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[8a82613c-d623-4ede-85c4-06e6fc1e7da4] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-16 17:07:52,321: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/worker/consumer.py", line 278, in start
+    blueprint.start(self)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/bootsteps.py", line 123, in start
+    step.start(parent)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/worker/consumer.py", line 821, in start
+    c.loop(*c.loop_args())
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/worker/loops.py", line 70, in asynloop
+    next(loop)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/kombu/async/hub.py", line 267, in create_loop
+    tick_callback()
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/kombu/transport/redis.py", line 941, in on_poll_start
+    cycle_poll_start()
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/kombu/transport/redis.py", line 299, in on_poll_start
+    self._register_BRPOP(channel)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/kombu/transport/redis.py", line 282, in _register_BRPOP
+    self._register(*ident)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/kombu/transport/redis.py", line 267, in _register
+    client.connection.connect()
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/redis/connection.py", line 436, in connect
+    raise ConnectionError(self._error_message(e))
+ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+[2015-02-16 17:07:53,200: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 111 connecting to localhost:6379. Connection refused..
+Trying again in 2.00 seconds...
+
+[2015-02-16 17:07:55,430: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 111 connecting to localhost:6379. Connection refused..
+Trying again in 4.00 seconds...
+
+
+worker: Cold shutdown (MainProcess)
+[2015-02-17 08:38:56,009: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 111 connecting to localhost:6379. Connection refused..
+Trying again in 2.00 seconds...
+
+[2015-02-17 08:38:59,169: WARNING/MainProcess] celery@zeus ready.
+[2015-02-17 08:39:01,267: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[db927982-58a6-4c18-9c5e-a5ed50cc2b37] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-17 08:39:01,268: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[f5f7debc-a2e0-4d63-afbb-2bb86fb36b5c] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-17 08:39:01,269: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[fd8d9bb3-dedd-421a-8850-16c822aba2ab] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-17 08:39:01,346: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[45ae7ed4-d898-4c31-a6ff-088b5dbdd69c] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-18 08:35:12,647: WARNING/MainProcess] celery@zeus ready.
+[2015-02-19 08:04:56,469: WARNING/MainProcess] celery@zeus ready.
+[2015-02-19 08:04:58,179: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[4671f836-d234-4cab-8114-5b8bc81b0374] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-19 08:04:58,179: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[39b12189-9d97-423d-956d-b88fdaa8aca2] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-19 08:04:58,180: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[61bd560b-4c9c-4b08-bd01-9ee2df463afa] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-19 08:04:58,962: ERROR/MainProcess] Task frappe.tasks.enqueue_events_for_site[a96f09d9-7e41-4cb9-8900-71257f3c19a7] raised unexpected: OperationalError(2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/tasks.py", line 108, in enqueue_events_for_site
+    enqueue_events(site)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 21, in enqueue_events
+    if is_scheduler_disabled():
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/utils/scheduler.py", line 105, in is_scheduler_disabled
+    return not frappe.utils.cint(frappe.db.get_default("enable_scheduler"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 459, in get_default
+    d = frappe.defaults.get_defaults(parent).get(key)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 52, in get_defaults
+    userd = get_defaults_for(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/defaults.py", line 143, in get_defaults_for
+    where parent = %s order by creation""", (parent,), as_dict=1)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 79, in sql
+    self.connect()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/database.py", line 49, in connect
+    use_unicode=True, charset='utf8')
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/__init__.py", line 81, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/frappe/frappe-bench/env/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 193, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, 'Can\'t connect to local MySQL server through socket \'/var/run/mysqld/mysqld.sock\' (2 "No such file or directory")')
+[2015-02-20 08:18:31,588: WARNING/MainProcess] celery@zeus ready.

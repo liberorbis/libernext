@@ -1,0 +1,9 @@
+{
+ "rebase_on_pull": false, 
+ "serve_default_site": true, 
+ "restart_supervisor_on_update": true, 
+ "auto_update": false, 
+ "update_bench_on_update": true, 
+ "frappe_user": "frappe", 
+ "shallow_clone": true
+}
